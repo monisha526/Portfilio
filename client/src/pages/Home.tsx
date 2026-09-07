@@ -169,7 +169,7 @@ const services = [
 const certificationItems = [
   ["AI & Data Science", "Learning track", "2025"],
   ["Hackathon participation", "Innovation sprint", "2025"],
-  ["Machine learning foundations", "Technical study", "2024"],
+  ["Smart street light + water level monitoring", "Hardware mini engineering project · IoT", "2025"],
 ];
 
 function useCountUp(target: number, delay = 0) {
