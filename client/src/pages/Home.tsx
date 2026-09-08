@@ -184,9 +184,9 @@ const certificationItems = [
 const teamMembers = [
   {
     name: "Monisha T",
-    role: "AI & Data Science Student · Portfolio Owner",
+    role: "AI & Data Science Collaborator · Team Member",
     skills: "AI · Data Science · Web Development · Research",
-    description: "The main portfolio owner — building thoughtful AI systems, research projects, and digital experiences with a creative edge.",
+    description: "A collaborative AI and Data Science creator contributing thoughtful systems, research projects, and digital experiences with a creative edge.",
     initials: "MT",
     accent: "cyan",
   },
@@ -332,12 +332,12 @@ export default function Home() {
   };
 
   const downloadResume = () => {
-    const resume = `MONISHA T\nAI & DATA SCIENCE STUDENT\n\nFocus: Artificial Intelligence, Data Science, Web Development, Design\n\nGoal\nBuild innovative AI-powered solutions and contribute to real-world technology projects.\n\nSelected work\n- CareFlow AI\n- Automated Advanced Parking Slot Management System\n- Explainable Phishing URL Detection\n- AI-Based Landslide Risk Monitoring System\n- Electricity Theft Detection Using Graph Neural Networks\n\nContact: genfahh@gmail.com`;
+    const resume = `PRADHEEP\nAI & DATA SCIENCE STUDENT\n\nFocus: Artificial Intelligence, Data Science, Web Development, Design\n\nGoal\nBuild innovative AI-powered solutions and contribute to real-world technology projects.\n\nSelected work\n- CareFlow AI\n- Automated Advanced Parking Slot Management System\n- Explainable Phishing URL Detection\n- AI-Based Landslide Risk Monitoring System\n- Electricity Theft Detection Using Graph Neural Networks\n\nContact: genfahh@gmail.com`;
     const blob = new Blob([resume], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = "monisha-resume.txt";
+    anchor.download = "pradheep-resume.txt";
     anchor.click();
     URL.revokeObjectURL(url);
     setToast("Resume download started.");
@@ -378,7 +378,7 @@ export default function Home() {
       <header className={`site-nav ${scrolled ? "is-scrolled" : ""}`}>
         <a className="brand" href="#home" onClick={(event) => { event.preventDefault(); scrollTo("home"); }}>
           <MiniLogo />
-          <span>monisha<span className="brand-dot">.</span></span>
+          <span>pradheep<span className="brand-dot">.</span></span>
         </a>
         <nav className={`nav-links ${menuOpen ? "is-open" : ""}`} aria-label="Primary navigation">
           {navItems.map(([id, label]) => (
@@ -412,7 +412,7 @@ export default function Home() {
               <div className="status-pill"><span className="status-dot" /> Available for meaningful projects <span className="pill-arrow">↗</span></div>
               <p className="hero-kicker">AI / DATA / TEAM INNOVATION</p>
               <h1>Building the next layer of <em>useful</em> technology.</h1>
-              <p className="hero-intro">Hi, I&apos;m <strong>Monisha T</strong> — an AI &amp; Data Science student, developer, researcher, and curious maker turning ambitious ideas into clear, human-centered digital experiences.</p>
+              <p className="hero-intro">Hi, I&apos;m <strong>Pradheep</strong> — an AI &amp; Data Science student, developer, researcher, and curious maker turning ambitious ideas into clear, human-centered digital experiences.</p>
               <div className="hero-actions">
                 <button className="button button-primary" type="button" onClick={() => scrollTo("work")}>Explore my work <ArrowDownRight size={17} /></button>
                 <button className="button button-quiet" type="button" onClick={downloadResume}><FileDown size={16} /> Download resume</button>
@@ -420,7 +420,7 @@ export default function Home() {
               <div className="hero-meta"><span><MapPin size={14} /> India · open to remote</span><span className="meta-separator" /><span><Zap size={14} /> learning in public</span></div>
             </div>
             <div className="hero-visual reveal-up delay-2">
-              <div className="visual-topline"><span>MONISHA T / 01</span><span>BUILD / EXPLORE</span></div>
+              <div className="visual-topline"><span>PRADHEEP / 01</span><span>BUILD / EXPLORE</span></div>
               <div className="code-orbit">
                 <div className="orbit-ring ring-one" /><div className="orbit-ring ring-two" />
                 <div className="orbit-core"><BrainCircuit size={45} strokeWidth={1.2} /><span>AI</span></div>
@@ -513,7 +513,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer"><div className="container footer-top"><a className="brand" href="#home" onClick={(event) => { event.preventDefault(); scrollTo("home"); }}><MiniLogo /><span>monisha<span className="brand-dot">.</span></span></a><p>Building technology with intent — together.</p><button type="button" onClick={() => scrollTo("home")}><ArrowUpRight size={16} /> Back to top</button></div><div className="container footer-bottom"><span>© 2025 Monisha T + Genfahh. Designed &amp; built with curiosity.</span><span>AI / DATA / TEAM INNOVATION</span></div></footer>
+      <footer className="site-footer"><div className="container footer-top"><a className="brand" href="#home" onClick={(event) => { event.preventDefault(); scrollTo("home"); }}><MiniLogo /><span>pradheep<span className="brand-dot">.</span></span></a><p>Building technology with intent — together.</p><button type="button" onClick={() => scrollTo("home")}><ArrowUpRight size={16} /> Back to top</button></div><div className="container footer-bottom"><span>© 2025 Pradheep + Genfahh. Designed &amp; built with curiosity.</span><span>AI / DATA / TEAM INNOVATION</span></div></footer>
 
       {showTop && <button className="scroll-top" type="button" onClick={() => scrollTo("home")} aria-label="Scroll to top"><ArrowUpRight size={17} /></button>}
       {toast && <div className="toast"><Check size={16} /> {toast}</div>}
