@@ -5,6 +5,8 @@ import {
   BarChart3,
   BrainCircuit,
   BriefcaseBusiness,
+  BookOpen,
+  Cpu,
   Check,
   ChevronDown,
   Code2,
@@ -34,8 +36,12 @@ import {
   Sparkles,
   Sun,
   Terminal,
+  Trophy,
   X,
   Zap,
+  Lightbulb,
+  Users,
+  Workflow,
 } from "lucide-react";
 
 type Project = {
@@ -54,9 +60,12 @@ type Project = {
 const navItems = [
   ["home", "Home"],
   ["about", "About"],
+  ["team", "Team"],
+  ["collaboration", "Collab"],
   ["skills", "Skills"],
   ["work", "Work"],
   ["journey", "Journey"],
+  ["genfahh", "Genfahh"],
   ["contact", "Contact"],
 ];
 
@@ -172,6 +181,44 @@ const certificationItems = [
   ["Smart street light + water level monitoring", "Hardware mini engineering project · IoT", "2025"],
 ];
 
+const teamMembers = [
+  {
+    name: "Monisha T",
+    role: "AI & Data Science Student · Portfolio Owner",
+    skills: "AI · Data Science · Web Development · Research",
+    description: "The main portfolio owner — building thoughtful AI systems, research projects, and digital experiences with a creative edge.",
+    initials: "MT",
+    accent: "cyan",
+  },
+  {
+    name: "Nanthika S",
+    role: "Collaborative Innovator · Research Partner",
+    skills: "Research · Ideation · Data Projects",
+    description: "A collaborative thinker bringing curiosity, structure, and fresh perspective to student innovation projects.",
+    initials: "NS",
+    accent: "violet",
+  },
+  {
+    name: "John Aaron J",
+    role: "Technology Collaborator · Project Builder",
+    skills: "Technology · Prototyping · Solution Design",
+    description: "A hands-on technology collaborator helping turn ambitious concepts into practical, testable solutions.",
+    initials: "JA",
+    accent: "lime",
+  },
+];
+
+const collaborationAreas = [
+  ["Artificial Intelligence & Machine Learning", BrainCircuit],
+  ["Data Science Projects", BarChart3],
+  ["Web Applications", Globe2],
+  ["Research Papers", BookOpen],
+  ["Student Innovation Projects", Lightbulb],
+  ["Hackathons", Trophy],
+  ["Technology Solutions", Cpu],
+  ["AI-powered Digital Content", Workflow],
+] as const;
+
 function useCountUp(target: number, delay = 0) {
   const [value, setValue] = useState(0);
   useEffect(() => {
@@ -285,12 +332,12 @@ export default function Home() {
   };
 
   const downloadResume = () => {
-    const resume = `PRADHEEP\nAI & DATA SCIENCE STUDENT\n\nFocus: Artificial Intelligence, Data Science, Web Development, Design\n\nGoal\nBuild innovative AI-powered solutions and contribute to real-world technology projects.\n\nSelected work\n- CareFlow AI\n- Automated Advanced Parking Slot Management System\n- Explainable Phishing URL Detection\n- AI-Based Landslide Risk Monitoring System\n- Electricity Theft Detection Using Graph Neural Networks\n\nContact: genfahh@gmail.com`;
+    const resume = `MONISHA T\nAI & DATA SCIENCE STUDENT\n\nFocus: Artificial Intelligence, Data Science, Web Development, Design\n\nGoal\nBuild innovative AI-powered solutions and contribute to real-world technology projects.\n\nSelected work\n- CareFlow AI\n- Automated Advanced Parking Slot Management System\n- Explainable Phishing URL Detection\n- AI-Based Landslide Risk Monitoring System\n- Electricity Theft Detection Using Graph Neural Networks\n\nContact: genfahh@gmail.com`;
     const blob = new Blob([resume], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = "pradheep-resume.txt";
+    anchor.download = "monisha-resume.txt";
     anchor.click();
     URL.revokeObjectURL(url);
     setToast("Resume download started.");
@@ -331,7 +378,7 @@ export default function Home() {
       <header className={`site-nav ${scrolled ? "is-scrolled" : ""}`}>
         <a className="brand" href="#home" onClick={(event) => { event.preventDefault(); scrollTo("home"); }}>
           <MiniLogo />
-          <span>pradheep<span className="brand-dot">.</span></span>
+          <span>monisha<span className="brand-dot">.</span></span>
         </a>
         <nav className={`nav-links ${menuOpen ? "is-open" : ""}`} aria-label="Primary navigation">
           {navItems.map(([id, label]) => (
@@ -363,9 +410,9 @@ export default function Home() {
           <div className="hero-content container">
             <div className="hero-copy reveal-up">
               <div className="status-pill"><span className="status-dot" /> Available for meaningful projects <span className="pill-arrow">↗</span></div>
-              <p className="hero-kicker">AI / DATA / DIGITAL CRAFT</p>
+              <p className="hero-kicker">AI / DATA / TEAM INNOVATION</p>
               <h1>Building the next layer of <em>useful</em> technology.</h1>
-              <p className="hero-intro">Hi, I&apos;m <strong>Pradheep</strong> — an AI &amp; Data Science student, developer, designer, and curious maker turning ambitious ideas into clear, human-centered digital experiences.</p>
+              <p className="hero-intro">Hi, I&apos;m <strong>Monisha T</strong> — an AI &amp; Data Science student, developer, researcher, and curious maker turning ambitious ideas into clear, human-centered digital experiences.</p>
               <div className="hero-actions">
                 <button className="button button-primary" type="button" onClick={() => scrollTo("work")}>Explore my work <ArrowDownRight size={17} /></button>
                 <button className="button button-quiet" type="button" onClick={downloadResume}><FileDown size={16} /> Download resume</button>
@@ -373,7 +420,7 @@ export default function Home() {
               <div className="hero-meta"><span><MapPin size={14} /> India · open to remote</span><span className="meta-separator" /><span><Zap size={14} /> learning in public</span></div>
             </div>
             <div className="hero-visual reveal-up delay-2">
-              <div className="visual-topline"><span>PRADHEEP / 01</span><span>BUILD / EXPLORE</span></div>
+              <div className="visual-topline"><span>MONISHA T / 01</span><span>BUILD / EXPLORE</span></div>
               <div className="code-orbit">
                 <div className="orbit-ring ring-one" /><div className="orbit-ring ring-two" />
                 <div className="orbit-core"><BrainCircuit size={45} strokeWidth={1.2} /><span>AI</span></div>
@@ -403,6 +450,14 @@ export default function Home() {
           </div>
         </section>
 
+
+        <section id="team" className="team-section section-pad section-dark">
+          <div className="container">
+            <div className="team-intro"><SectionHeading kicker="02 — Meet the team" title="One portfolio. Three perspectives." copy="We are a passionate team of young innovators working together to create impactful solutions using Artificial Intelligence, Data Science, Web Development, Research, and emerging technologies." /><div className="team-signature reveal-up delay-1"><Users size={18} /><span>Personal identity, shared momentum.</span></div></div>
+            <div className="team-grid">{teamMembers.map((member, index) => <article className={`member-card member-${member.accent} reveal-up delay-${Math.min(index, 3)}`} key={member.name}><div className="member-card-top"><span>TEAM / 0{index + 1}</span><Users size={17} /></div><div className="profile-placeholder"><div className="profile-glow" /><span>{member.initials}</span><small>photo placeholder</small></div><div className="member-copy"><h3>{member.name}</h3><span className="member-role">{member.role}</span><p>{member.description}</p><div className="member-skills">{member.skills.split(" · ").map((skill) => <span key={skill}>{skill}</span>)}</div></div><div className="member-links"><a href="https://github.com/" target="_blank" rel="noreferrer"><Github size={14} /> GitHub <ArrowUpRight size={13} /></a><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><Linkedin size={14} /> LinkedIn <ArrowUpRight size={13} /></a></div></article>)}</div>
+          </div>
+        </section>
+
         <section id="skills" className="skills-section section-pad section-dark">
           <div className="container">
             <SectionHeading kicker="02 — Capabilities" title="A stack built for curiosity." copy="Technical foundations, creative tools, and the habit of making things clearer." />
@@ -414,6 +469,11 @@ export default function Home() {
             </div>
             <div className="tool-cloud reveal-up delay-1"><span className="cloud-label">Current toolkit</span>{["Python", "React", "JavaScript", "Streamlit", "SQLite", "GitHub", "VS Code", "Canva", "SHAP", "LIME", "Figma", "Excel"].map((tool, index) => <span className={`tool-tag tag-${index % 4}`} key={tool}>{tool}</span>)}</div>
           </div>
+        </section>
+
+
+        <section id="collaboration" className="collab-section section-pad">
+          <div className="container collab-layout"><SectionHeading kicker="03 — Our collaboration" title="Different strengths. One direction." copy="Our team collaborates across the full innovation loop — from the first research question to the final demo, paper, or piece of content." /><div className="collab-grid">{collaborationAreas.map(([title, Icon], index) => <div className="collab-card reveal-up" key={title}><span>0{index + 1}</span><Icon size={21} /><h3>{title}</h3><ArrowUpRight className="collab-arrow" size={16} /></div>)}</div></div>
         </section>
 
         <section className="services-section section-pad">
@@ -443,12 +503,17 @@ export default function Home() {
           <div className="container cert-layout"><div><SectionHeading kicker="06 — Credentials" title="Learning, documented." copy="A growing shelf of certificates, challenges, and milestones. Add new proof points as the journey continues." /><button className="button button-quiet" type="button" onClick={() => showPlaceholderToast("Certificate upload is ready for your next credential.")}><Plus size={16} /> Add certificate</button></div><div className="cert-list">{certificationItems.map(([title, org, year], index) => <div className="cert-card reveal-up" key={title}><div className="cert-icon"><GraduationCap size={18} /></div><div><span>{org}</span><h3>{title}</h3><small>{year} · credential placeholder</small></div><button type="button" aria-label={`View ${title}`} onClick={() => showPlaceholderToast("Add your certificate URL to make this card live.")}><ExternalLink size={16} /></button></div>)}</div></div>
         </section>
 
+
+        <section id="genfahh" className="social-section section-pad section-dark">
+          <div className="container social-card reveal-up"><div className="social-orbit" aria-hidden="true"><Instagram size={42} /></div><div className="social-copy"><span className="kicker">08 — Follow our journey</span><h2>Meet <em>GENFAHH</em>.</h2><p>Follow Genfahh for innovation, technology, AI, research, web development, student projects, educational content, and our journey of building the future with technology.</p><a className="instagram-button" href="https://www.instagram.com/genfahh/" target="_blank" rel="noreferrer"><Instagram size={18} /> Follow @genfahh on Instagram <ArrowUpRight size={16} /></a></div><div className="social-handle"><span>official team page</span><strong>@genfahh</strong><small>innovation / research / build</small></div></div>
+        </section>
+
         <section id="contact" className="contact-section section-pad">
-          <div className="container contact-layout"><div className="contact-copy"><SectionHeading kicker="07 — Contact" title="Have an idea with a little spark?" copy="Tell me what you&apos;re building, researching, or imagining. I&apos;d love to hear the thinking behind it." /><div className="contact-links"><a href="mailto:genfahh@gmail.com"><Mail size={17} /><span>genfahh@gmail.com</span><ArrowUpRight size={15} /></a><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><Linkedin size={17} /><span>LinkedIn / connect</span><ArrowUpRight size={15} /></a><a href="https://github.com/" target="_blank" rel="noreferrer"><Github size={17} /><span>GitHub / explore</span><ArrowUpRight size={15} /></a><a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><Instagram size={17} /><span>Instagram / follow</span><ArrowUpRight size={15} /></a></div></div><form className="contact-form reveal-up delay-1" onSubmit={handleSubmit}><div className="form-heading"><span>Start a conversation</span><Send size={18} /></div><label>Name<input type="text" value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} placeholder="Your name" /></label><label>Email<input type="email" value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} placeholder="you@example.com" /></label><label>Subject<input type="text" value={form.subject} onChange={(event) => setForm({ ...form, subject: event.target.value })} placeholder="What are you working on?" /></label><label>Message<textarea value={form.message} onChange={(event) => setForm({ ...form, message: event.target.value })} placeholder="A few words about the idea..." rows={4} /></label>{formError && <p className="form-message error">{formError}</p>}{formSent && <p className="form-message success"><Check size={15} /> Message received — I&apos;ll get back to you soon.</p>}<button className="button button-primary form-submit" type="submit">Send message <ArrowUpRight size={17} /></button></form></div>
+          <div className="container contact-layout"><div className="contact-copy"><SectionHeading kicker="07 — Contact" title="Have an idea with a little spark?" copy="Tell me what you&apos;re building, researching, or imagining. I&apos;d love to hear the thinking behind it." /><div className="contact-links"><a href="mailto:genfahh@gmail.com"><Mail size={17} /><span>genfahh@gmail.com</span><ArrowUpRight size={15} /></a><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><Linkedin size={17} /><span>LinkedIn / connect</span><ArrowUpRight size={15} /></a><a href="https://github.com/" target="_blank" rel="noreferrer"><Github size={17} /><span>GitHub / explore</span><ArrowUpRight size={15} /></a><a href="https://www.instagram.com/genfahh/" target="_blank" rel="noreferrer"><Instagram size={17} /><span>@genfahh / follow</span><ArrowUpRight size={15} /></a></div></div><form className="contact-form reveal-up delay-1" onSubmit={handleSubmit}><div className="form-heading"><span>Start a conversation</span><Send size={18} /></div><label>Name<input type="text" value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} placeholder="Your name" /></label><label>Email<input type="email" value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} placeholder="you@example.com" /></label><label>Subject<input type="text" value={form.subject} onChange={(event) => setForm({ ...form, subject: event.target.value })} placeholder="What are you working on?" /></label><label>Message<textarea value={form.message} onChange={(event) => setForm({ ...form, message: event.target.value })} placeholder="A few words about the idea..." rows={4} /></label>{formError && <p className="form-message error">{formError}</p>}{formSent && <p className="form-message success"><Check size={15} /> Message received — I&apos;ll get back to you soon.</p>}<button className="button button-primary form-submit" type="submit">Send message <ArrowUpRight size={17} /></button></form></div>
         </section>
       </main>
 
-      <footer className="site-footer"><div className="container footer-top"><a className="brand" href="#home" onClick={(event) => { event.preventDefault(); scrollTo("home"); }}><MiniLogo /><span>pradheep<span className="brand-dot">.</span></span></a><p>Building technology with intent.</p><button type="button" onClick={() => scrollTo("home")}><ArrowUpRight size={16} /> Back to top</button></div><div className="container footer-bottom"><span>© 2025 Pradheep. Designed &amp; built with curiosity.</span><span>AI / DATA / DIGITAL CRAFT</span></div></footer>
+      <footer className="site-footer"><div className="container footer-top"><a className="brand" href="#home" onClick={(event) => { event.preventDefault(); scrollTo("home"); }}><MiniLogo /><span>monisha<span className="brand-dot">.</span></span></a><p>Building technology with intent — together.</p><button type="button" onClick={() => scrollTo("home")}><ArrowUpRight size={16} /> Back to top</button></div><div className="container footer-bottom"><span>© 2025 Monisha T + Genfahh. Designed &amp; built with curiosity.</span><span>AI / DATA / TEAM INNOVATION</span></div></footer>
 
       {showTop && <button className="scroll-top" type="button" onClick={() => scrollTo("home")} aria-label="Scroll to top"><ArrowUpRight size={17} /></button>}
       {toast && <div className="toast"><Check size={16} /> {toast}</div>}
