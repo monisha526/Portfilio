@@ -167,6 +167,7 @@ h1 em { color: #7ff9e4; font-style: normal; }
 .challenge-content { position: relative; z-index: 1; }
 .challenge-heading { display: flex; justify-content: space-between; gap: 40px; align-items: flex-end; }
 .challenge-heading .section-heading { max-width: 690px; }.challenge-heading .section-heading h2 { color: #eff2ff; }.challenge-heading .section-heading p { color: #aeb8cb; }
+.challenge-actions { display: flex; flex-wrap: wrap; gap: 9px; justify-content: flex-end; align-items: center; }.challenge-actions audio { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }.button-audio { border: 1px solid rgba(0,229,255,.55); background: rgba(0,229,255,.08); color: #00e5ff; }.button-audio:hover { transform: translateY(-3px); border-color: #00e5ff; background: rgba(0,229,255,.16); }
 .challenge-panel { max-width: 760px; margin: 62px 0 0 auto; padding: 24px; border: 1px solid rgba(0,229,255,.35); background: rgba(8,16,31,.72); box-shadow: 0 24px 90px rgba(0,0,0,.32), inset 0 0 45px rgba(0,229,255,.05); backdrop-filter: blur(12px); }
 .challenge-panel-top { display: flex; justify-content: space-between; gap: 20px; color: #7e91a9; font: 10px/1 var(--display); letter-spacing: .15em; }
 .challenge-range { display: flex; gap: 22px; align-items: center; margin: 26px 0 18px; font: 500 clamp(70px, 10vw, 132px)/.8 var(--display); letter-spacing: -.1em; }.challenge-range strong:first-child { color: #00e5ff; }.challenge-range strong:last-child { color: #ff8c00; }.challenge-range span { color: #ff8c00; font-size: .58em; letter-spacing: 0; }

@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -42,6 +42,8 @@ import {
   Lightbulb,
   Users,
   Workflow,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 
 type Project = {
@@ -274,6 +276,8 @@ export default function Home() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [formError, setFormError] = useState("");
   const [formSent, setFormSent] = useState(false);
+  const [isVoicePlaying, setIsVoicePlaying] = useState(false);
+  const challengeVideo = useRef<HTMLVideoElement>(null);
 
   const countProjects = useCountUp(5, 150);
   const countSkills = useCountUp(18, 220);
@@ -345,6 +349,14 @@ export default function Home() {
   };
 
   const showPlaceholderToast = (message: string) => setToast(message);
+
+  const toggleVoiceover = async () => {
+    const video = challengeVideo.current;
+    if (!video) return;
+    if (video.paused) await video.play();
+    video.muted = !video.muted;
+    setIsVoicePlaying(!video.muted);
+  };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -452,14 +464,17 @@ export default function Home() {
         </section>
 
         <section id="challenge" className="challenge-section section-pad section-dark">
-          <video className="challenge-video" autoPlay muted loop playsInline poster="/sih-update-poster.jpg" aria-hidden="true">
+          <video ref={challengeVideo} className="challenge-video" autoPlay muted loop playsInline poster="/sih-update-poster.jpg" aria-label="SIH 2026 update video with voiceover">
             <source src="/sih-update.mp4" type="video/mp4" />
           </video>
           <div className="challenge-overlay" aria-hidden="true" />
           <div className="container challenge-content">
             <div className="challenge-heading">
               <SectionHeading kicker="SIH 2026 — Portal update" title="More problems. More ways to build impact." copy="The Smart India Hackathon update expands the problem-statement range from 229 to 240 — 11 new opportunities for student innovation." />
-              <a className="button button-primary" href="/sih-2026-problem-statements.pdf" download><FileDown size={16} /> Download full PDF</a>
+              <div className="challenge-actions">
+                <button className="button button-audio" type="button" onClick={toggleVoiceover} aria-pressed={isVoicePlaying}>{isVoicePlaying ? <VolumeX size={16} /> : <Volume2 size={16} />} {isVoicePlaying ? "Mute voiceover" : "Enable voiceover"}</button>
+                <a className="button button-primary" href="/sih-2026-problem-statements.pdf" download><FileDown size={16} /> Download full PDF</a>
+              </div>
             </div>
             <div className="challenge-panel reveal-up delay-1">
               <div className="challenge-panel-top"><span>PROBLEM STATEMENTS</span><span>SIH 2026 / UPDATE</span></div>
