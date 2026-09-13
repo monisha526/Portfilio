@@ -60,6 +60,7 @@ type Project = {
 const navItems = [
   ["home", "Home"],
   ["about", "About"],
+  ["challenge", "SIH 2026"],
   ["team", "Team"],
   ["collaboration", "Collab"],
   ["skills", "Skills"],
@@ -447,6 +448,28 @@ export default function Home() {
             <div className="stat-card reveal-up delay-1"><span className="stat-index">A / 02</span><strong>{countSkills.toString().padStart(2, "0")}<sup>+</sup></strong><span>skills &amp; tools</span></div>
             <div className="stat-card reveal-up delay-2"><span className="stat-index">A / 03</span><strong>{countCerts.toString().padStart(2, "0")}</strong><span>learning milestones</span></div>
             <div className="stat-card reveal-up delay-3"><span className="stat-index">A / 04</span><strong>{countProblems.toString()}<sup>+</sup></strong><span>coding problems solved</span></div>
+          </div>
+        </section>
+
+        <section id="challenge" className="challenge-section section-pad section-dark">
+          <video className="challenge-video" autoPlay muted loop playsInline poster="/sih-update-poster.jpg" aria-hidden="true">
+            <source src="/sih-update.mp4" type="video/mp4" />
+          </video>
+          <div className="challenge-overlay" aria-hidden="true" />
+          <div className="container challenge-content">
+            <div className="challenge-heading">
+              <SectionHeading kicker="SIH 2026 — Portal update" title="More problems. More ways to build impact." copy="The Smart India Hackathon update expands the problem-statement range from 229 to 240 — 11 new opportunities for student innovation." />
+              <a className="button button-primary" href="/sih-2026-problem-statements.pdf" download><FileDown size={16} /> Download full PDF</a>
+            </div>
+            <div className="challenge-panel reveal-up delay-1">
+              <div className="challenge-panel-top"><span>PROBLEM STATEMENTS</span><span>SIH 2026 / UPDATE</span></div>
+              <div className="challenge-range"><strong>229</strong><span>→</span><strong>240</strong></div>
+              <div className="challenge-count"><span className="challenge-count-number">11</span><span>new problem statements<br />now available</span></div>
+              <div className="challenge-codes"><span>SIH26230</span><span>SIH26240</span></div>
+              <p>Each problem statement is identified by a unique SIH code for easy tracking. Review the official portal before selecting your next challenge.</p>
+              <a className="challenge-portal" href="https://www.sih.gov.in/" target="_blank" rel="noreferrer">Check the SIH portal <ArrowUpRight size={15} /></a>
+            </div>
+            <div className="challenge-theme reveal-up delay-2"><span className="kicker">Theme details</span><span>Dark tech / cyan signal / orange urgency</span><span>Update · Growth · Codes · Action</span><span>AI • TECH • HACKATHONS • RESEARCH</span></div>
           </div>
         </section>
 
