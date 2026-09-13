@@ -484,7 +484,7 @@ export default function Home() {
               <p>Each problem statement is identified by a unique SIH code for easy tracking. Review the official portal before selecting your next challenge.</p>
               <a className="challenge-portal" href="https://www.sih.gov.in/" target="_blank" rel="noreferrer">Check the SIH portal <ArrowUpRight size={15} /></a>
             </div>
-            <div className="challenge-theme reveal-up delay-2"><span className="kicker">Theme details</span><span>Dark tech / cyan signal / orange urgency</span><span>Update · Growth · Codes · Action</span><span>AI • TECH • HACKATHONS • RESEARCH</span></div>
+            <div className="challenge-theme reveal-up delay-2"><span className="kicker">Theme details</span><span>Dark tech / cyan signal / orange urgency</span><span>Update · Growth · Codes · Action</span><span>AI • TECH • HACKATHONS • RESEARCH</span><strong>Follow our page for more updates.</strong></div>
           </div>
         </section>
 
